@@ -1,85 +1,258 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nardella - Tu tienda de afiliados de confianza</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <title>Nardella</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+
+
+    <style>
+        body {
+            background: linear-gradient(320deg, #030303,#222121,#353333,#979494);
+            color: #ffffff;
+            font-family: 'Roboto Condensed', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .navbar {
+            background: linear-gradient(100deg, #030303,#353434, #6d6868);
+            border-bottom: 3px solid #0ff;
+            box-shadow: 0 5px 20px rgba(0, 255, 255, 0.4);
+        }
+
+        .navbar-brand {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: #0ff;
+        }
+
+        .search-box {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        .search-box input {
+            width: 60%;
+            padding: 10px;
+            border-radius: 20px;
+            border: 1px solid #0ff;
+            background: linear-gradient(130deg, #000000,#1d1c1c,#353333,#716e6e);
+            color: #e0e0e0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .product-card {
+            background: linear-gradient(180deg, #6d6868,#353434, #030303);
+            border: 2px solid #0ff;
+            border-radius: 20px;
+            margin: 10px;
+            padding: 15px;
+            width: 300px;
+            text-align: center;
+            position: relative;
+        }
+
+        .product-card img {
+            max-width: 100%;
+            border-radius: 15px;
+        }
+
+        .buy-button {
+            padding: 10px 20px;
+            border-radius: 20px;
+            background-color: rgb(200, 244, 244);
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .buy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 255, 255, 0.1);
+            border: 1px solid #0ff;
+            color: rgb(229, 249, 249);
+            padding: 5px 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            visibility: hidden;
+            transition: visibility 0.3s, background-color 0.3s;
+        }
+
+        .product-card:hover .buy-button {
+            visibility: visible; 
+            background: #1e90ff;
+        }
+
+        .buy-button:hover {
+            background-color: #00d4d4;
+        }
+
+        .social-media {
+            text-align: center;
+            margin: 100px 0 20px 0;
+        }
+
+        .social-media h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #0ff;
+            margin-bottom: 20px;
+        }
+
+        .social-media a {
+            display: inline-block;
+            margin: 0 15px;
+            color: #0ff;
+            font-size: 0.8rem;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .social-media a:hover {
+            color: #00d4d4;
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .social-media a::before {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #00d4d4;
+            transition: width 0.3s;
+        }
+
+        .social-media a:hover::before {
+            width: 100%;
+        }
+    </style>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">NARDELLA</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <form class="d-flex mx-auto w-50">
-                    <input class="form-control me-2" type="search" placeholder="Buscar productos..." aria-label="Search">
-                    <button class="btn btn-outline-light" type="submit">Buscar</button>
-                </form>
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Iniciar Sesión</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Carrito</a>
-                    </li>
-                </ul>
-            </div>
+            <a class="navbar-brand" href="index.html">Nardella</a>
         </div>
     </nav>
 
-    <div class="container-fluid mt-4">
-        <div class="row">
-            <div class="col-md-2 bg-light p-3">
-                <h5>Categorías</h5>
-                <ul class="list-group">
-                    <li class="list-group-item"><button class="btn w-100 text-start" data-category="all">Todos</button></li>
-                    <li class="list-group-item"><button class="btn w-100 text-start" data-category="electronics">Electrónica</button></li>
-                    <li class="list-group-item"><button class="btn w-100 text-start" data-category="fashion">Moda</button></li>
-                    <li class="list-group-item"><button class="btn w-100 text-start" data-category="home">Hogar</button></li>
-                    <li class="list-group-item"><button class="btn w-100 text-start" data-category="sports">Deportes</button></li>
-                </ul>
-            </div>
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Buscar por nombre de producto o categoría...">
+    </div>
 
-            <div class="col-md-10">
-                <h2 class="mb-4">Productos Destacados</h2>
-                <div class="row row-cols-1 row-cols-md-3 g-4" id="productContainer">
-                    <!-- Productos de ejemplo -->
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="producto1.jpg" class="card-img-top" alt="Producto 1">
-                            <div class="card-body">
-                                <h5 class="card-title">Producto 1</h5>
-                                <p class="card-text">Descripción breve del producto 1.</p>
-                                <p class="text-danger"><strong>Precio: $49.99</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="producto2.jpg" class="card-img-top" alt="Producto 2">
-                            <div class="card-body">
-                                <h5 class="card-title">Producto 2</h5>
-                                <p class="card-text">Descripción breve del producto 2.</p>
-                                <p class="text-danger"><strong>Precio: $89.99</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Añadir más productos según sea necesario -->
-                </div>
-            </div>
+    <div class="container" id="productContainer">
+        <!-- Tarjetas de productos -->
+        <div class="product-card" data-category="tecnología" data-name="Robot Asistente">
+            <img src="producto1.jpg" alt="Robot Asistente">
+            <h3>Robot Asistente</h3>
+            <p>Categoría: Tecnología</p>
+            <button class="buy-button" onclick="window.location.href='https://www.afiliado.com/robot-asistente'">Ver en Tienda</button>
+        </div>
+        <div class="product-card" data-category="hogar" data-name="Lámpara Inteligente">
+            <img src="producto2.jpg" alt="Lámpara Inteligente">
+            <h3>Lámpara Inteligente</h3>
+            <p>Categoría: Hogar</p>
+            <button class="buy-button" onclick="window.location.href='https://www.afiliado.com/lampara-inteligente'">Ver en Tienda</button>
+        </div>
+        <div class="product-card" data-category="tecnología" data-name="Dron Avanzado">
+            <img src="producto3.jpg" alt="Dron Avanzado">
+            <h3>Dron Avanzado</h3>
+            <p>Categoría: Tecnología</p>
+            <button class="buy-button" onclick="window.location.href='https://www.afiliado.com/dron-avanzado'">Ver en Tienda</button>
+        </div>
+        <div class="product-card" data-category="moda" data-name="Chaqueta Inteligente">
+            <img src="producto4.jpg" alt="Chaqueta Inteligente">
+            <h3>Chaqueta Inteligente</h3>
+            <p>Categoría: Moda</p>
+            <button class="buy-button" onclick="window.location.href='https://www.afiliado.com/chaqueta-inteligente'">Ver en Tienda</button>
+        </div>
+        <div class="product-card" data-category="cuidado personal" data-name="Cepillo de Dientes Láser">
+            <img src="producto5.jpg" alt="Cepillo de Dientes Láser">
+            <h3>Cepillo de Dientes Láser</h3>
+            <p>Categoría: Cuidado Personal</p>
+            <button class="buy-button" onclick="window.location.href='https://www.afiliado.com/cepillo-laser'">Ver en Tienda</button>
+        </div>
+        <div class="product-card" data-category="tecnología" data-name="Gafas de Realidad Virtual">
+            <img src="producto6.jpg" alt="Gafas de Realidad Virtual">
+            <h3>Gafas de Realidad Virtual</h3>
+            <p>Categoría: Tecnología</p>
+            <button class="buy-button" onclick="window.location.href='https://www.afiliado.com/gafas-realidad-virtual'">Ver en Tienda</button>
+        </div>
+        <div class="product-card" data-category="moda" data-name="Zapatos Inteligentes">
+            <img src="producto7.jpg" alt="Zapatos Inteligentes">
+            <h3>Zapatos Inteligentes</h3>
+            <p>Categoría: Moda</p>
+            <button class="buy-button" onclick="window.location.href='https://www.afiliado.com/zapatos-inteligentes'">Ver en Tienda</button>
+        </div>
+        <div class="product-card" data-category="cuidado personal" data-name="Afeitadora Láser">
+            <img src="producto8.jpg" alt="Afeitadora Láser">
+            <h3>Afeitadora Láser</h3>
+            <p>Categoría: Cuidado Personal</p>
+            <button class="buy-button" onclick="window.location.href='https://www.afiliado.com/afeitadora-laser'">Ver en Tienda</button>
+        </div>
+        <div class="product-card" data-category="tecnología" data-name="Bocina Bluetooth Avanzada">
+            <img src="producto9.jpg" alt="Bocina Bluetooth Avanzada">
+            <h3>Bocina Bluetooth Avanzada</h3>
+            <p>Categoría: Tecnología</p>
+            <button class="buy-button" onclick="window.location.href='https://www.afiliado.com/bocina-bluetooth'">Ver en Tienda</button>
+        </div>
+        <div class="product-card" data-category="hogar" data-name="Purificador de Aire Inteligente">
+            <img src="producto10.jpg" alt="Purificador de Aire Inteligente">
+            <h3>Purificador de Aire Inteligente</h3>
+            <p>Categoría: Hogar</p>
+            <button class="buy-button" onclick="window.location.href='https://www.afiliado.com/purificador-aire'">Ver en Tienda</button>
         </div>
     </div>
 
-    <footer class="bg-dark text-white text-center py-3 mt-4">
-        <p>&copy; 2024 Nardella. Todos los derechos reservados.</p>
-        <p>Síguenos en <a href="https://instagram.com/nardella" target="_blank" class="text-decoration-none text-white">Instagram</a> | <a href="mailto:contacto@nardella.com" class="text-decoration-none text-white">Contacto</a> | <a href="#" class="text-decoration-none text-white">Términos y Condiciones</a></p>
-    </footer>
+    <div class="social-media">
+        <h3>Sígueme en mis Redes Sociales</h3>
+        <a href="https://youtube.com/@leojhon.v?si=UGnyowvGArMUE6Zn" target="_blank">
+            <i class="fab fa-youtube-square fa-3x"></i>
+        </a>
+        <a href="https://www.tiktok.com/@leojhonv?_t=8r4Kbw43Fm2&_r=1" target="_blank">
+            <i class="fab fa-tiktok fa-3x"></i>
+        </a>
+        <a href="https://www.instagram.com/leojhon.v" target="_blank">
+            <i class="fab fa-instagram-square fa-3x"></i>
+        </a>
+    </div>
+    
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const productCards = document.querySelectorAll('.product-card');
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+        searchInput.addEventListener('input', function() {
+            const query = searchInput.value.toLowerCase();
+            productCards.forEach(card => {
+                const name = card.getAttribute('data-name').toLowerCase();
+                const category = card.getAttribute('data-category').toLowerCase();
+                if (name.includes(query) || category.includes(query)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
